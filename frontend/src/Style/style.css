@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .Navbar {
+    color: white;
+    padding: 10px;
+  }
+  .Filter,
+  .Table {
+    padding: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .Filter,
+    .Table {
+      padding: 5px;
+    }
+  }
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  @media (max-width: 768px) {
+    .Navbar {
+      padding: 5px;
+      text-align: center;
+    }
+  
+    .Filter,
+    .Table {
+      padding: 5px;
+    }
+  }
+  .ant-table {
+    overflow-x: auto;
+  }
+  
+  .ant-table thead th {
+    text-align: left;
+  }
+  
+  @media (max-width: 768px) {
+    .ant-table {
+      font-size: 12px;
+    }
+  
+    .ant-table th,
+    .ant-table td {
+      padding: 8px;
+    }
+  }
+  
