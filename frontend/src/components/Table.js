@@ -1,12 +1,11 @@
-// src/components/VenueTable.js
 import React from 'react';
 import { Table, Tag } from 'antd';
-import { v4 as uuidv4 } from 'uuid';
+import '../Style/style.css'; 
 
-const columns = [
+export const columns = [
   {
     title: 'Venue Id',
-    dataIndex: 'id',
+    dataIndex: 'venueId',
     render: text => <span>{text}</span>,
   },
   {
@@ -19,44 +18,42 @@ const columns = [
     render: text => <span>{text}</span>,
   },
   {
-    title: 'Rating',
-    dataIndex: 'rating',
-    render: rating => (
-      <span>
-        {'★'.repeat(rating)}{'☆'.repeat(5 - rating)}
-      </span>
-    ),
+    title: 'Capacity',
+    dataIndex: 'capacity',
   },
   {
-    title: 'Status',
-    dataIndex: 'status',
-    render: text => (
-      <Tag color={text === 'Available' ? 'green' : 'red'}>
-        {text}
+    title: 'Availability',
+    dataIndex: 'availability',
+    render: availability => (
+      <Tag color={availability === 'Available' ? 'green' : 'red'}>
+        {availability.toUpperCase()}
       </Tag>
     ),
   },
 ];
 
-const data = [
+export const data = [
   {
     key: '1',
-    id: '123445567',
-    name: 'John Brown',
-    location: 'New York',
-    rating: 4,
-    status: 'Available',
+    venueId: 'A123',
+    name: 'Grand Hall',
+    location: 'Downtown',
+    capacity: 500,
+    availability: 'Available',
   },
-  // Add more venue data here
+  {
+    key: '2',
+    venueId: 'B456',
+    name: 'Conference Room',
+    location: 'Midtown',
+    capacity: 100,
+    availability: 'Unavailable',
+  },
+  // Add more data as needed
 ];
 
-const VenueTable = ({ filteredData }) => (
-  <Table
-    columns={columns}
-    dataSource={filteredData || data}
-    rowKey="key"
-    pagination={false} // Disable pagination
-  />
-);
+const VenueTable = ({ filteredData = [] }) => {
+  return <Table columns={columns} dataSource={filteredData} />;
+};
 
 export default VenueTable;
